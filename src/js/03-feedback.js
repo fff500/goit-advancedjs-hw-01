@@ -26,6 +26,11 @@ function handleSubmit(event) {
 
   const formDataObject = getFormData(form);
 
+  if (Object.values(formDataObject).some((value) => !(!!value))) {
+    alert('Please, fill in all the fields.');
+    return;
+  }
+
   form.reset();
   localStorage.removeItem(FORM_STATE_KEY);
 
